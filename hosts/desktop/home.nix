@@ -3,27 +3,6 @@
 	home.username = "kobi";
 	home.homeDirectory = "/home/kobi";
 
-	# Import files from the current configuration directory into the 
-	# Nix store, and create symbolic links pointing to those store 
-	# files in the Home directory.
-
-	# home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-	# Import the scripts directory into the Nix store,
-	# and recursively generate symbolic links in the Home directory 
-	# pointing to the files in the store.
-	
-	# home.file.".config/i3/scripts" = {
-	# 	source = ./scripts;
-	# 	recursive = true;   # link recursively
-  	# 	executable = true;  # make all files executable
-	# };
-
-  	# encode the file content in nix configuration file directly
-  	# home.file.".xxx".text = ''
-  	# 	xxx
-  	# '';
-
 	# set cursor size and dpi for 4k monitor
 	xresources.properties = {
 		"Xcursor.size" = 16;
@@ -32,97 +11,29 @@
 
 	# Packages that should be installed to the user profile.
 	home.packages = with pkgs; [
-		# Archives
+		# Archives and formats
 		zip
 		unzip
 		rar
+		gnutar
+		ffmpeg
 
-		# Utils
-			# TODO
-			# man grep
-			# man ripgrep
-			# man eza
-			# man fzf
-			# man wget
-			# man git
+		# Command Line
 		gnugrep
-		ripgrep # recursively searches directories for a regex pattern
-		eza # A modern replacement for ‘ls’
+		ripgrep
 		fzf # A command-line fuzzy finder
 		wget
 		ranger
 		git
 		killall
-
-		# Networking tool
-			# TODO 
-			# man mtr
-			# man iperf3
-			# man dnsutils
-			# man ldns
-			# man aria2
-			# man socat
-			# man nmap
-			# man ipcalc
-		mtr # A network diagnostic tool
-		iperf3
-		dnsutils  # `dig` + `nslookup`
-		ldns # replacement of `dig`, it provide the command `drill`
-		aria2 # A lightweight multi-protocol & multi-source command-line download utility
-		socat # replacement of openbsd-netcat
-		nmap # A utility for network discovery and security auditing
-		ipcalc  # it is a calculator for the IPv4/v6 addresses
-
-		# Misc
-			# TODO 
-			# man file
-			# man which
-			# man tree
-			# man gnused
-			# man gnutar
-			# man gawk
-			# man zstd
-			# man gnupg
 		file
 		which
 		tree
-		gnused
-		gnutar
-		gawk
-		zstd
-		gnupg
-		ffmpeg
-
-		# Productivity
-			# TODO 
-			# man hugo
-			# man glow
-			# constant iotop, iftop, and btop to desktop?
-		hugo # static site generator
-		glow # markdown previewer in terminal
-		btop  # replacement of htop/nmon
 		iotop # io monitoring
 		iftop # network monitoring
-		prometheus-nvidia-gpu-exporter # GPU visualizations
-		# TODO declarative this shi
-
-		# System call monitoring
-			# TODO 
-			# man strace
-			# man ltrace
-			# man lsof
-		strace # system call monitoring
-		ltrace # library call monitoring
 		lsof # list open files
 
-		# System tools
-			# TODO 
-			# man sysstat
-			# man lm_sensors
-			# man ethtool
-		sysstat
-		lm_sensors # for `sensors` command
-		ethtool
+		# System Tools
 		pciutils # lspci
 		usbutils # lsusb
 
@@ -141,15 +52,13 @@
 		wl-clipboard	# Wayland clipboard
 		wl-clip-persist
 		libnotify	# Notifications daemon
-		cava		# Audio visualizer
 		xfce.thunar	# GUI file manager
 		wofi		# Application launcher
 
-		# Terminal environment
+		# Terminal Environment
 		kitty
 		oh-my-zsh
 		fastfetch
-		cbonsai
 
 		# Communications
 		thunderbird
@@ -177,8 +86,6 @@
 
 		# Gaming
 		steam
-		mangohud
-		lutris
 		protonup-ng
 	];
 
@@ -190,8 +97,8 @@
 	# Git
 	programs.git = {
 		enable = true;
-		userName = "Kobi O'Reilly";
-		userEmail = "kobi.l.oreilly@gmail.com";
+		settings.user.name = "Kobi O'Reilly";
+		settings.user.email = "kobi.l.oreilly@gmail.com";
 	};
 
 	# Z Shell
@@ -215,14 +122,16 @@
 			nvim = "sudo nvim";
 			ncim = "sudo nvim";
 			r = "ranger";
-			nixls = "cd /etc/nixos/ && ls";
+			nixls = "cd /etc/nixos/ && tree";
 			nixconf = "sudo nvim /etc/nixos/configuration.nix";
 			nixhome = "sudo nvim /etc/nixos/home.nix";
+			nixflake = "sudo nvim /etc/nixos/flake.nix";
 			nixrs = "sudo nixos-rebuild switch";
 			img = "qimgv";
 			stash = "cd /home/kobi/Media && ./stash-linux";
 			pavu = "pavucontrol";
 			H = "Hyprland";
+			git = "sudo git";
 		};
 		history = {
 			size = 10000;
@@ -302,9 +211,6 @@
 				"$golang"
 				"$nodejs"
 				"$php"
-				"$java"
-				"$kotlin"
-				"$haskell"
 				"$python"
 				"$time"
 				"$line_break"
@@ -359,21 +265,6 @@
 			};
 			php = {
 				symbol = "";
-				style = "bg:color_blue";
-				format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-			};
-			java = {
-				symbol = "";
-				style = "bg:color_blue";
-				format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-			};
-			kotlin = {
-				symbol = "";
-				style = "bg:color_blue";
-				format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-			};
-			haskell = {
-				symbol = "";
 				style = "bg:color_blue";
 				format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
 			};
