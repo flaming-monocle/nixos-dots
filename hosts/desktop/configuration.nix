@@ -44,4 +44,7 @@
   ];
 
   system.stateVersion = "25.11"; # DO NOT MODIFY
+  
+  ## TO ABSTRACT ##
+  programs.hyprland.enable = true;
 }

@@ -1,3 +1,4 @@
+# home.nix
 { config, pkgs, lib, ... }:
 {
   home.username = "kobi";
@@ -7,6 +8,7 @@
     ./../../user/default.nix
     ./../../user/terminal-env.nix
     ./../../user/hypr-env.nix
+    ./zsh-aliases.nix
   ];
 
   # set cursor size and dpi for 4k monitor
