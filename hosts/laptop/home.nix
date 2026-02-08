@@ -1,4 +1,7 @@
+# hosts/laptop/home.nix
+
 { config, pkgs, lib, ... }:
+
 {
   home.username = "kobi";
   home.homeDirectory = "/home/kobi";
@@ -6,6 +9,7 @@
   imports = [
     ./../../user/default.nix
     ./../../user/terminal-env.nix
+    ./zsh-aliases.nix
     ./../../user/hypr-env.nix
   ];
 
@@ -26,6 +30,7 @@
     # Content Creation
     vscodium
     obsidian
+    kdePackages.kate
     gimp
     shotcut
     audacity
