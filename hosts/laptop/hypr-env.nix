@@ -35,6 +35,12 @@
         "eDP-1, 1920x1080@60, 0x0, 1"
       ];
 
+      gesture = [
+        "3, horizontal, workspace"
+        "3, down, float:float"
+	"3, up, float:tile"
+      ];
+
       "ecosystem:no_update_news" = true;
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
