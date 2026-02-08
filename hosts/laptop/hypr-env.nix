@@ -1,7 +1,4 @@
-# hypr-env.nix
-
 { config, lib, pkgs, ... }:
-
 {
   home.packages = with pkgs; [
     hyprland
@@ -34,10 +31,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-    
-      ## v ABSTRACT THIS v ##
-      monitor = "eDP-1, 1920x1080@60, 0x0, 1";
-      ## ^ ABSTRACT THIS ^ ##
+      monitor = [
+        "eDP-1, 1920x1080@60, 0x0, 1"
+      ];
 
       "ecosystem:no_update_news" = true;
       "$terminal" = "kitty";

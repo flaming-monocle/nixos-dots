@@ -6,9 +6,8 @@
   imports = [
     ./../../user/default.nix
     ./../../user/terminal-env.nix
-    ./../../user/hypr-env.nix
+    ./hypr-env.nix
     ./zsh-aliases.nix
-    ./hyprland-monitors.nix
   ];
 
   # set cursor size and dpi for 4k monitor
