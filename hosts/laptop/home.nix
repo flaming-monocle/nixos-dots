@@ -1,7 +1,4 @@
-# hosts/laptop/home.nix
-
 { config, pkgs, lib, ... }:
-
 {
   home.username = "kobi";
   home.homeDirectory = "/home/kobi";
