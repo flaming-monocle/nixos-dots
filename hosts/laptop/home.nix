@@ -1,4 +1,3 @@
-# home.nix
 { config, pkgs, lib, ... }:
 {
   home.username = "kobi";
