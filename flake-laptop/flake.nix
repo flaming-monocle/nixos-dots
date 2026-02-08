@@ -15,23 +15,12 @@
     nixosConfigurations = {
       t480s = nixpkgs.lib.nixosSystem {
         modules = [
-	  ./hosts/laptop/configuration.nix
+	  ./../hosts/laptop/configuration.nix
 	  home-manager.nixosModules.home-manager
 	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
-	    home-manager.users.kobi = import ./hosts/laptop/home.nix;
-          }
-	];
-      };
-      snowblack = nixpkgs.lib.nixosSystem {
-        modules = [
-	  ./hosts/desktop/configuration.nix
-	  home-manager.nixosModules.home-manager
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.userUserPackages = true;
-	    home-manager.users.kobi = import ./hosts/desktop/home.nix;
+	    home-manager.users.kobi = import ./../hosts/laptop/home.nix;
           }
 	];
       };

@@ -10,11 +10,4 @@
     ./terminal-env/neovim.nix
     ./terminal-env/starship.nix
   ];
-
-  home.packages = with pkgs; [
-    git
-    kitty
-    oh-my-zsh
-    neovim
-  ];
 }

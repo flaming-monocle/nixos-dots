@@ -3,6 +3,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    kitty
+  ];
+
   programs.kitty = lib.mkForce {
     enable = true;
     themeFile = "everforest_dark_hard";

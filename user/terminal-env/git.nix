@@ -5,7 +5,7 @@
 {
   programs.git = {
     enable = true;
-    settings.user.name = "Kobi O'Reilly";
+    settings.user.name = "flaming-monocle";
     settings.user.email = "kobi.l.oreilly@gmail.com";
   };
 }
