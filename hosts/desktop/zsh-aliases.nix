@@ -1,7 +1,4 @@
-# zsh-aliases.nix
-
-{ config, lib, pkgs, ... };
-
+{ config, lib, pkgs, ... }:
 {
   programs.zsh.shellAliases = {
     c = "clear";

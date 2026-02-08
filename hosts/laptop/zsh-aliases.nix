@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 # zsh-aliases.nix
 
 { config, lib, pkgs, ... }:
 
+=======
+{ config, lib, pkgs, ... }:
+>>>>>>> 640ddb5d64d668f77787002b4806841df8d3cce0
 {
   programs.zsh.shellAliases = {
     c = "clear";
