@@ -22,11 +22,11 @@
       enable = true;
       plugins = [ 
         "alias-finder"
-	"common-aliases"
-	"colored-man-pages"
-	"fzf"
-	"kitty"
-	"vscode"
+	    "common-aliases"
+	    "colored-man-pages"
+	    "fzf"
+	    "kitty"
+	    "vscode"
       ];
     };
   };
