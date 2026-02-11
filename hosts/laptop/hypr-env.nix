@@ -34,17 +34,12 @@
       monitor = [
         "eDP-1, 1920x1080@60, 0x0, 1"
       ];
-
-      workspace_swipe = true;
-      workspace_swipe_fingers = 3;
-      workspace_swipe_invert = true;
       
+      gestures = {
+        "workspace_swipe_invert" = false;
+      };
       gesture = [
         "3, horizontal, workspace"
-      ];
-      bindd = [
-        ", edge:r:u, swiped:3:u, exec, hyprctl dispatch settiled"
-	", edge:r:d, swiped:3:d, exec, hyprctl dispatch setfloating"
       ];
 
       "ecosystem:no_update_news" = true;
