@@ -35,6 +35,8 @@
     shell = pkgs.zsh;
   };
 
+  #environment.variables.EDITOR = "nvim";
+
   environment.systemPackages = with pkgs; [
     # Temp
   ];
