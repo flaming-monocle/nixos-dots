@@ -35,7 +35,10 @@
     shell = pkgs.zsh;
   };
 
-  #environment.variables.EDITOR = "nvim";
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+
+  hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
     # Temp
