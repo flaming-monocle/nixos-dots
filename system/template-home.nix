@@ -1,6 +1,6 @@
-# test.nix
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+
+{
   environment.systemPackages = with pkgs; [
-    btop
   ];
 }

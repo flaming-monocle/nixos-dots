@@ -7,6 +7,7 @@
     ./../../user/default.nix
     ./../../user/terminal-env.nix
     ./../../user/gaming.nix
+    ./../../user/video-recording.nix
     ./zsh-aliases.nix
     ./hypr-env.nix
   ];

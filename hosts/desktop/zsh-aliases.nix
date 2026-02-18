@@ -22,7 +22,7 @@
     nixls = "cd /etc/nixos/ && tree";
     nixconf = "sudo nvim /etc/nixos/hosts/laptop/configuration.nix";
     nixhome = "sudo nvim /etc/nixos/hosts/laptop/home.nix";
-    nixrs = "sudo nixos-rebuild switch --flake /etc/nixos/flake-desktop.nix";
+    nixrs = "sudo nixos-rebuild switch --flake /etc/nixos/flake-desktop/";
     img = "qimgv";
     stash = "cd /home/kobi/Media && ./stash-linux";
     pavu = "pavucontrol";

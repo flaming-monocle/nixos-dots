@@ -8,7 +8,6 @@
     ./../../system/defaults.nix
     ./../../system/nvidia-gpu.nix
     ./../../system/amd-cpu.nix
-    ./../../system/monitoring-tools.nix
     ./../../system/sound-pro.nix
     ./../../system/openrgb.nix
     ./../../system/fonts.nix
