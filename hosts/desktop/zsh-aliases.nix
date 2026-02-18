@@ -20,8 +20,8 @@
     nivm = "sudo nvim";
     r = "ranger";
     nixls = "cd /etc/nixos/ && tree";
-    nixconf = "sudo nvim /etc/nixos/hosts/laptop/configuration.nix";
-    nixhome = "sudo nvim /etc/nixos/hosts/laptop/home.nix";
+    nixconf = "sudo nvim /etc/nixos/hosts/desktop/configuration.nix";
+    nixhome = "sudo nvim /etc/nixos/hosts/desktop/home.nix";
     nixrs = "sudo nixos-rebuild switch --flake /etc/nixos/flake-desktop/";
     img = "qimgv";
     stash = "cd /home/kobi/Media && ./stash-linux";

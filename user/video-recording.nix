@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: 
 {
-  home.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     obs-studio
   ];
 }
