@@ -14,6 +14,7 @@
     zip
     unzip
     rar
+    p7zip
     gnutar
     ffmpeg
 
