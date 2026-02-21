@@ -3,6 +3,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    zenity
+  ];
   programs.steam = {
     enable = true; # cannot be config'd in home.nix
     extraCompatPackages = with pkgs; [

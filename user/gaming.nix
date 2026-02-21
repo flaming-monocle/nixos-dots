@@ -3,6 +3,10 @@
   home.packages = with pkgs; [
     steam
     protonup-ng
+
+    # For MO2:
+    jq
+    websocat
   ];
 
   # Proton GE
