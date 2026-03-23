@@ -9,5 +9,6 @@
     ./terminal-env/zsh.nix
     ./terminal-env/neovim.nix
     ./terminal-env/starship.nix
+    ./terminal-env/math.nix
   ];
 }
