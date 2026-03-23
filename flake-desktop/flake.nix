@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
