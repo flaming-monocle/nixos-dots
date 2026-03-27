@@ -17,7 +17,6 @@
     p7zip
     gnutar
     ffmpeg
-    gparted
 
     # CLI Utils
     gnugrep
