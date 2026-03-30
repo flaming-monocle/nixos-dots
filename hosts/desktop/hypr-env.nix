@@ -13,6 +13,9 @@
     wofi
   ];
 
+  
+  # security.pam.services.hyprlock = true;
+
   services.hyprpaper = {
     enable = true;
     settings = {
@@ -52,6 +55,13 @@
     };
   };
 
+  # Force hyprpaper to grab the latest hyprpaper.conf on restart
+  systemd.user.services.hyprpaper = {
+    Unit.X-Restart-Triggers = [
+      config.lib.dag.entryAfter ["writeBoundary"] "${config.xdg.configFile."hypr/hyprpaper.conf".source}"
+    ];
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -69,7 +79,7 @@
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
       "$menu" = "wofi --show drun -I -a -n -W 750 -H 500 -s ~/.config/wofi/themes/gruvbox.css";
-      
+
       exec-once = [
 	"systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR HYPRLAND_INSTANCE_SIGNATURE"
 	"systemctl --user start hyprpolkitagent"
@@ -91,11 +101,11 @@
 	"col.active_border" = "rgb(D79921) rgb(8EC07C) 0deg";
 	"col.inactive_border" = "rgb(3C3836)";
 
-	gaps_in = "7";
+	gaps_in = "5";
 	gaps_out = "0,10,3,10";
-	border_size = "2";
+	border_size = "1.5";
       };
-
+      
       "$mod" = "SUPER";
       bind = [
         "$mod, Return, exec, $terminal"
