@@ -13,17 +13,38 @@
     xfce.thunar
     wofi
   ];
-  
+
   services.hyprpaper = {
     enable = true;
     settings = {
       preload = [
-       "~/wallpapers/wallpaper.jpg"
-       "~/wallpapers/wallpaper1.jpg"
-       "~/wallpapers/wallpaper2.jpg"
+        "~/wallpapers/mossy.jpg"
+        "~/wallpapers/mossy-l.jpg"
+        "~/wallpapers/mossy-r.jpg"
+        "~/wallpapers/forest.jpg"
+        "~/wallpapers/geometric.jpg"
+        "~/wallpapers/west/jpg"
+        "~/wallpapers/west-l/jpg"
+        "~/wallpapers/west-r/jpg"
+        "~/wallpapers/falls.jpg"
+        # "~/wallpapers/falls-l.jpg"
+        # "~/wallpapers/falls-r.jpg"
+	"~/wallpapers/pass.jpg"
+	# "~/wallpapers/pass-l.jpg"
+	# "~/wallpapers/pass-r.jpg"
       ];
+      splash = false;
       wallpaper = [
-        ",~/wallpapers/wallpaper.jpg"
+        {
+	  monitor = "DP-3";
+	  path = "/wallpapers/mossy-l.png";
+	  fit_mode = "fill";
+	}
+	{
+	  monitor = "DP-1";
+	  path = "/wallpapers/mossy-r.png";
+	  fit_mode = "fill";
+	}
       ];
     };
   };
@@ -49,6 +70,7 @@
       exec-once = [
         "hyprpanel"
 	"systemctl --user start hyprpolkitagent"
+	"hyprpaper"
       ];
       
       env = [
