@@ -10,6 +10,7 @@
     ./../../user/video-recording.nix
     ./zsh-aliases.nix
     ./hypr-env.nix
+    ./scripts/ampm-pape.nix
   ];
 
   # Packages that should be installed to the user profile.

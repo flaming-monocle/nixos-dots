@@ -6,7 +6,6 @@
     hyprpolkitagent
     hyprcursor
     hyprshot
-    hyprpaper
     wl-clipboard
     wl-clip-persist
     libnotify
@@ -18,31 +17,35 @@
     enable = true;
     settings = {
       preload = [
-        "~/wallpapers/mossy.jpg"
+        # "~/wallpapers/mossy.jpg"
         "~/wallpapers/mossy-l.jpg"
         "~/wallpapers/mossy-r.jpg"
         "~/wallpapers/forest.jpg"
-        "~/wallpapers/geometric.jpg"
-        "~/wallpapers/west/jpg"
+        # "~/wallpapers/geometric.jpg"
+        # "~/wallpapers/west/jpg"
         "~/wallpapers/west-l/jpg"
         "~/wallpapers/west-r/jpg"
-        "~/wallpapers/falls.jpg"
+        # "~/wallpapers/falls.jpg"
         # "~/wallpapers/falls-l.jpg"
         # "~/wallpapers/falls-r.jpg"
-	"~/wallpapers/pass.jpg"
+	# "~/wallpapers/pass.jpg"
 	# "~/wallpapers/pass-l.jpg"
 	# "~/wallpapers/pass-r.jpg"
+	"~/wallpapers-bigsur-day-l.png"
+	"~/wallpapers-bigsur-day-r.png"
+	"~/wallpapers-bigsur-night-l.png"
+	"~/wallpapers-bigsur-night-r.png"
       ];
       splash = false;
       wallpaper = [
         {
 	  monitor = "DP-3";
-	  path = "/wallpapers/mossy-l.png";
+	  path = "/wallpapers/bigsur-night-l.png";
 	  fit_mode = "fill";
 	}
 	{
 	  monitor = "DP-1";
-	  path = "/wallpapers/mossy-r.png";
+	  path = "/wallpapers/bigsur-night-r.png";
 	  fit_mode = "fill";
 	}
       ];
@@ -68,8 +71,9 @@
       "$menu" = "wofi --show drun -I -a -n -W 750 -H 500 -s ~/.config/wofi/themes/gruvbox.css";
       
       exec-once = [
-        "hyprpanel"
+	"systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR HYPRLAND_INSTANCE_SIGNATURE"
 	"systemctl --user start hyprpolkitagent"
+        "hyprpanel"
 	"hyprpaper"
       ];
       
