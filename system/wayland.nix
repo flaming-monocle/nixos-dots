@@ -7,6 +7,8 @@
     wayland
     wayland-protocols
     xwayland
+		wl-clipboard
+		wl-clip-persist
   ];
 
   services.gvfs.enable = true; # file shortcuts in hyprctl dash

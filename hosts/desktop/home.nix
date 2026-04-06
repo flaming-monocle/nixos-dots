@@ -8,9 +8,13 @@
     ./../../user/terminal-env.nix
     ./../../user/gaming.nix
     ./../../user/video-recording.nix
+		./../../user/math.nix
+		./../../user/math-adv.nix
     ./zsh-aliases.nix
     ./hypr-env.nix
-    ./scripts/ampm-pape.nix
+		./rofi.nix
+		./stylix.nix
+		./scripts/ampm-pape.nix
   ];
 
   # Packages that should be installed to the user profile.

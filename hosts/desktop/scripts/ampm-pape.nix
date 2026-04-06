@@ -1,17 +1,19 @@
 # systemd wallpaper switcher for AM/PM
-# currently hardcoded with MacOS Big Sur default landscapes
-
-{ pkgs, config, ... }:
-
+{ pkgs, ... }:
 let 
+  mainPapeDirDay = ./../../../wallpapers/bigsur-day-l.png;
+  mainPapeDirNight = ./../../../wallpapers/bigsur-night-l.png;
+  portraitPapeDirDay = ./../../../wallpapers/bigsur-day-r.png;
+  portraitPapeDirNight = ./../../../wallpapers/bigsur-night-r.png;
+
   wallpaperScript = pkgs.writeShellScriptBin "cycle-wallpaper" ''
 
     TIME=$(date +%H)
 
-    AM_WP_L=~/wallpapers/bigsur-day-l.png
-    AM_WP_R=~/wallpapers/bigsur-day-r.png
-    PM_WP_L=~/wallpapers/bigsur-night-l.png
-    PM_WP_R=~/wallpapers/bigsur-night-r.png
+    AM_WP_L=${mainPapeDirDay}
+    AM_WP_R=${portraitPapeDirDay}
+    PM_WP_L=${mainPapeDirNight}
+    PM_WP_R=${portraitPapeDirNight}
 
     if [ $TIME -gt 6 ] && [ $TIME -lt 18 ]; then
       WP_L=$AM_WP_L

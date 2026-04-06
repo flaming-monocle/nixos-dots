@@ -1,7 +1,5 @@
 # kitty.nix
-
 { config, lib, pkgs, ... }:
-
 {
   home.packages = with pkgs; [
     kitty
@@ -9,11 +7,12 @@
 
   programs.kitty = lib.mkForce {
     enable = true;
-    themeFile = "everforest_dark_hard";
+    # overwritten by Stylix
+		# themeFile = "everforest_dark_hard";
     settings = {
       # Font and cursor
       font_family = "JetBrains Mono";
-      font_size = 14.0;
+      font_size = 12.0;
       adjust_line_height = "100%";
       cursor_shape = "block";
       cursor_blink_interval = 0;
@@ -29,17 +28,17 @@
       shell_integration = "enabled";
       
       # Visuals
-      background_opacity = 0.2;
+      background_opacity = 0.5;
       inactive_text_alpha = 1;
       url_style = "dotted";
       show_hyperlink_targets = "yes";
-      window_padding_width = 5;
+      window_padding_width = 0;
 
       # Binds
       open_url_modifiers = "ctrl";
       kitty_mod = "alt";
-      "map ctrl+c" = "copy_to_clipboard";
-      "map ctrl+v" = "paste_from_clipboard";
+      "map ctrl+y" = "copy_to_clipboard";
+      "map ctrl+p" = "paste_from_clipboard";
       "map ctrl+equal" = "change_font_size all +0.5";
       "map ctrl+minus" = "change_font_size all -0.5";
     };

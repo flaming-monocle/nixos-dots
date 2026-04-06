@@ -1,7 +1,5 @@
 # defaults.nix
-
 { config, lib, pkgs, ... }:
-
 {
   # Boot options
   boot = {
@@ -25,7 +23,7 @@
   };
   
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
-  
+
   # System-wide Settings
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowInsecure = true;
@@ -39,11 +37,18 @@
   environment.systemPackages = with pkgs; [
     linux-firmware
     dconf-editor
-    vim
     clang
   ];
   
   # Default Programs
   programs.dconf.enable = true;
   programs.firefox.enable = true;
+  environment.variables.EDITOR = "nvim";
+
+	# Garbage Collection
+	nix.gc = {
+		automatic = true;
+		dates = "weekly";
+		options = "--delete-older-than 30d";
+	};  
 }
