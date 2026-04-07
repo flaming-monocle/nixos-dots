@@ -1,8 +1,8 @@
 # starship.nix
 { config, lib, pkgs, ... }:
 let
-  bg = config.lib.stylix.colors.base00;
-  fg = config.lib.stylix.colors.base05;
+  bg = config.lib.stylix.colors.withHashtag.base00;
+  fg = config.lib.stylix.colors.withHashtag.base05;
 in
 {
   programs.starship = {
@@ -14,27 +14,27 @@ in
       # ░▒▓ └─── % _
       format = lib.strings.concatStrings [
         "[░▒▓](fg:${bg})[  ](fg:${fg} bg:${bg})$username[ ](fg:${bg})"
-				"$directory"
-				"$git_branch"
-				"$git_status"
-				"$c"
-				"$cpp"
-				"$rust"
-				"$golang"
-				"$nodejs"
-				"$php"
-				"$python"
-				"$time"
-				"$line_break"
-				"[░▒▓](fg:${bg})[ └─── % ](fg:${fg} bg:${bg})[](fg:${bg})"
-				"$character"
+        "$directory"
+        "$git_branch"
+        "$git_status"
+        "$c"
+        "$cpp"
+        "$rust"
+        "$golang"
+        "$nodejs"
+        "$php"
+        "$python"
+        "$time"
+        "$line_break"
+        "[░▒▓](fg:${bg})[ └─── % ](fg:${fg} bg:${bg})[](fg:${bg})"
+        "$character"
       ];
 
       username = {
         show_always = true;
-				style_root = "fg:statusline3 bg:bg_dim";
-				style_user = "fg:fg0 bg:bg_dim";
-				format = "[$user ]($style)";
+        style_root = "fg:${fg} bg:${bg}";
+        style_user = "fg:${fg} bg:${bg}";
+        format = "[$user ]($style)";
       };
       
       directory = {

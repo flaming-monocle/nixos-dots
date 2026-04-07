@@ -1,5 +1,7 @@
 # stylix.nix
 { inputs, pkgs, lib, ... }:
+let
+in
 {
 	imports = [
 		inputs.stylix.homeModules.stylix
@@ -11,7 +13,11 @@
 		# Ignore certain programs:
 		targets = {
 			hyprpanel.enable = false;
-			#starship.enable = false;
+			starship.enable = false;
+      
+      nixvim.colors.override = {
+        base08 = "8FBCBB";
+      };
 		};
 
 		opacity = {
@@ -67,7 +73,7 @@
 				base08 = "#E57E80"; # fg_red
 					# error text
 					# vim variables
-				base09 = "#5E81AC"; # fg_darkblue
+				base09 = "#6C95C7"; # fg_darkblue
 				base0A = "#DABC7F"; # fg_yellow
 				base0B = "#89B482"; # fg_aqua
 					# vim strings

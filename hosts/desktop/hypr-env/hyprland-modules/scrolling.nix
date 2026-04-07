@@ -1,5 +1,5 @@
 # hyprland-scrolling.nix
-{ config, pkgs, lib, ... }:
+{ lib, ... }:
 let
   inherit (lib) mod;
   mainMonitor = "DP-3";
@@ -13,12 +13,14 @@ in
         # Scrolling layout vim binds
         # TODO Make per-monitor
         # TODO Disable splitting windows vertically
-        "$mod SHIFT, H, movetoworkspace, 0"
+        "$mod SHIFT, H, layoutmsg, swapcol l"
         "$mod, H, layoutmsg, focus l"
-        "$mod, J, movetoworkspace, +2"
-        "$mod, K, movetoworkspace, -2"
+        "$mod SHIFT, J, movetoworkspace, +2"
+        "$mod, J, workspace, +2"
+        "$mod SHIFT, K, movetoworkspace, -2"
+        "$mod, K, workspace, -2"
+        "$mod SHIFT, L, layoutmsg, swapcol r"
         "$mod, L, layoutmsg, focus r"
-        "$mod SHIFT, L, movetoworkspace, 99"
       ];
       layoutWorkspace = builtins.map (ws:
         if (mod ws 2 == 0)

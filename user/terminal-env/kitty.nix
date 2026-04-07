@@ -7,8 +7,7 @@
 
   programs.kitty = lib.mkForce {
     enable = true;
-    # overwritten by Stylix
-		# themeFile = "everforest_dark_hard";
+		#themeFile = "everforest_dark_hard";
     settings = {
       # Font and cursor
       font_family = "JetBrains Mono";
@@ -19,6 +18,7 @@
       cursor_trail = 1;
       cursor_trail_decay = "0.05 0.20";
       cursor_trail_start_threshold = 1;
+      #cursor = 
 
       # Technical settings
       scrollback_lines = 10000;
