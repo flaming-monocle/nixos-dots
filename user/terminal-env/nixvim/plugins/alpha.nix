@@ -1,45 +1,47 @@
 # nixvim/plugins/alpha.nix
 { config, pkgs, lib, ... }:
 let
-  base08 = config.lib.stylix.colors.withHashtag.base08;
-  base09 = config.lib.stylix.colors.withHashtag.base09;
-  base0A = config.lib.stylix.colors.withHashtag.base0A;
-  base0B = config.lib.stylix.colors.withHashtag.base0B;
-  base0C = config.lib.stylix.colors.withHashtag.base0C;
-  base0D = config.lib.stylix.colors.withHashtag.base0D;
-  base0E = config.lib.stylix.colors.withHashtag.base0E;
-  base0F = config.lib.stylix.colors.withHashtag.base0F;
-  button = key: desc: action: {
+  button = shortcut: desc: action: {
     type = "button";
     val = desc;
-    #on_press = "Telescope find_files";
-    on_press = { __raw = "function() vim.cmd([[${action}]]) end"; };
+    on_press = action;
     opts = {
-      shortcut = key;
+      shortcut = shortcut;
       width = 30;
       align_shortcut = "right";
       hl_shortcut = "Keyword";
-      hl = "Normal";
       position = "center";
+      keymap = [ "n" shortcut "<cmd>${action}<cr>" { noremap = true; silent = true; } ];
     };
   };
 in
 {
-  
   programs.nixvim = {
-    autoCmd = [
-      {
-        event = [ "FileType" ];
-        pattern = [ "alpha" ];
-        command = "setlocal nocursorline | let b:cursorline_enabled = 0";
-        # Fixes a startup script conflict
-      }
-    ];
+    highlight = {
+      Base16_00 = { fg = "${config.lib.stylix.colors.withHashtag.base00}"; };
+      Base16_01 = { fg = "${config.lib.stylix.colors.withHashtag.base01}"; };
+      Base16_02 = { fg = "${config.lib.stylix.colors.withHashtag.base02}"; };
+      Base16_03 = { fg = "${config.lib.stylix.colors.withHashtag.base03}"; };
+      Base16_04 = { fg = "${config.lib.stylix.colors.withHashtag.base04}"; };
+      Base16_05 = { fg = "${config.lib.stylix.colors.withHashtag.base05}"; };
+      Base16_06 = { fg = "${config.lib.stylix.colors.withHashtag.base06}"; };
+      Base16_07 = { fg = "${config.lib.stylix.colors.withHashtag.base07}"; };
+      Base16_08 = { fg = "${config.lib.stylix.colors.withHashtag.base08}"; };
+      Base16_09 = { fg = "${config.lib.stylix.colors.withHashtag.base09}"; };
+      Base16_0A = { fg = "${config.lib.stylix.colors.withHashtag.base0A}"; };
+      Base16_0B = { fg = "${config.lib.stylix.colors.withHashtag.base0B}"; };
+      Base16_0C = { fg = "${config.lib.stylix.colors.withHashtag.base0C}"; };
+      Base16_0D = { fg = "${config.lib.stylix.colors.withHashtag.base0D}"; };
+      Base16_0E = { fg = "${config.lib.stylix.colors.withHashtag.base0E}"; };
+      Base16_0F = { fg = "${config.lib.stylix.colors.withHashtag.base0F}"; };
+    };
+
     plugins.alpha = {
       enable = true;
       theme = null;
       settings = {
         layout = [
+          { type = "padding"; val = 10; }
           {
             type = "text";
             val = [
@@ -56,49 +58,67 @@ in
               position = "center"; 
             };
           }
-          { type = "padding"; val = 3; }
+          { type = "padding"; val = 2; }
           {
             type = "text";
             val = "Base16 - Everbox Dark";
             opts = { 
-              postion = "center"; 
               hl = "Comment"; 
+              position = "center"; 
             };
           }
           {
             type = "text";
-            #val = " ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██ ";
-            val = "            ██   ██   ██   ██   ██   ██   ██   ██               ";
-    
+            val = " ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██  ██ ";
+            #val = "            ██   ██   ██   ██   ██   ██   ██   ██               ";
+            #val = "----------------------------------------------------------------";
             opts = {
               position = "center";
               hl = [
-                #[ "Stylixbase01" 2 3 ]
-                #[ "Stylixbase02" 6 7 ]
-                #[ "Stylixbase03" 10 11 ]
-                #[ "Stylixbase04" 14 15 ]
-                #[ "Stylixbase05" 18 19 ]
-                #[ "Stylixbase06" 22 23 ]
-                #[ "Stylixbase07" 26 27 ]
-                [ "${base08}" 12 13 ]
-                [ "${base09}" 17 18 ]
-                [ "${base0A}" 22 23 ]
-                [ "${base0B}" 27 28 ]
-                [ "${base0C}" 32 33 ]
-                [ "${base0D}" 37 38 ]
-                [ "${base0E}" 42 43 ]
-                [ "${base0F}" 47 48 ]
+                [ "Base16_00" 1 7 ]
+                [ "Base16_01" 9 15 ]
+                [ "Base16_02" 17 23 ]
+                [ "Base16_03" 25 31 ]
+                [ "Base16_04" 33 39 ]
+                [ "Base16_05" 41 47 ]
+                [ "Base16_06" 49 55 ]
+                [ "Base16_07" 57 63 ]
+                [ "Base16_08" 65 71 ]
+                [ "Base16_09" 73 79 ]
+                [ "Base16_0A" 81 87 ]
+                [ "Base16_0B" 89 95 ]
+                [ "Base16_0C" 97 103 ]
+                [ "Base16_0D" 105 111 ]
+                [ "Base16_0E" 113 119 ]
+                [ "Base16_0F" 121 127 ]
               ];
             };
           }
           { type = "padding"; val = 3; }
-          (button "n" " New File" "ene | startinsert")
-          (button "s" " Restore Session" "SessionRestore")
-          (button "r" "󰄉 Recent Files" "Telescope oldfiles")
-          (button "d" "󰉓 Find Directory" "Telescope zoxide list")
-          (button "f" "󰱼 Find File" "Telescope find_files")
-          (button "g" "󰍉 Find Text" "Telescope live_grep")
-          (button "q" "󰈆 Quit" "qa")
+          {
+            type = "group";
+            val = [
+              (button "n" "   New File" "ene | startinsert")
+              (button "r" "   Recent Files" "Telescope oldfiles")
+              (button "f" "   Find File" "Telescope find_files")
+              (button "g" "   Live Grep" "Telescope live_grep")
+              (button "t" "󰙅  Tree View" "")
+              ""
+              (button "o" "󰮋  Obsidian" "")
+              (button "x" "  NixOS" "")
+              (button "p" "  Projects" "Telescope projects")
+              ""
+              (button "m" "  Keymaps" "Telescope keymaps")
+              (button "i" "  LSP Info" "LspInfo")
+              (button "q" "󰅙  Quit" "qa")
+              #projects
+              #git branches
+              #git status
+
+              #restore session
+              #save session
+            ];
+          }
           { type = "padding"; val = 3; }
           {
             type = "text";

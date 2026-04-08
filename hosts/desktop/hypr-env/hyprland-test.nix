@@ -153,7 +153,7 @@ in
         ];
         
         general = {
-          resize_on_border = true;
+          resize_on_border = false;
   				allow_tearing = false;
   				
   				"col.active_border" = mkForce "rgb(${colors.base0D}) rgb(${colors.base0E}) 30deg";

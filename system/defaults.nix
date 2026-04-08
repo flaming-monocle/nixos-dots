@@ -44,6 +44,7 @@
   programs.dconf.enable = true;
   programs.firefox.enable = true;
   environment.variables.EDITOR = "nvim";
+  environment.variables.SUDO_EDITOR = "nvim";
 
 	# Garbage Collection
 	nix.gc = {

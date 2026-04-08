@@ -13,7 +13,7 @@
 			hyprpanel.enable = false;
 			starship.enable = false;
       
-      nixvim.enable = false;
+      #nixvim.enable = false;
     };
 
 		opacity = {

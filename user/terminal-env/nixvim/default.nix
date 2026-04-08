@@ -6,7 +6,8 @@ in
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./nixvim/plugins.nix
+    ./plugins/default.nix
+    ./keymaps.nix
   ];
 
   programs.nixvim = {
@@ -24,32 +25,20 @@ in
       nixfmt
     ];
 
-    globals.mapleader = " ";
-    globals.maplocalleader = " ";
+    performance.combinePlugins = {
+      enable = true;
+      standalonePlugins = [
+        "blink.cmp"
+        "oil.nvim"
+      ];
+    };
 
-    keymaps = [
-      #TODO add a leave-insert-mode analog for <esc>
-      { 
-        mode = "n"; 
-        action = "<cmd>echo 'Use h to move!!'<CR>";
-        key = "<left>"; 
-      }
-      { 
-        mode = "n"; 
-        action = "<cmd>echo 'Use h to move!!'<CR>"; 
-	      key = "<down>"; 
-      }
-      { 
-        mode = "n"; 
-        action = "<cmd>echo 'Use h to move!!'<CR>"; 
-	      key = "<up>";
-      }
-      {
-        mode = "n"; 
-        action = "<cmd>echo 'Use h to move!!'<CR>"; 
-	      key = "<right>"; 
-      }
-    ];
+    globals = {
+      loaded_netrw = 1;
+      loaded_netrwPlugin = 1;
+      mapleader = " ";
+      maplocalleader = " ";
+    };
 
     opts = {
       # Performance
