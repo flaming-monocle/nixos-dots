@@ -17,7 +17,7 @@
       vim = "nvim";
       cim = "nvim";
       ivm = "nvim";
-      svim = "sudo nvim";
+      svim = "sudoedit";
       r = "ranger";
       nixls = "cd /etc/nixos/ && tree -I 'wallpapers|flake-laptop|hosts/laptop'";
       nixconf = "sudo vim /etc/nixos/hosts/desktop/configuration.nix";

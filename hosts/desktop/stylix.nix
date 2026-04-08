@@ -1,7 +1,5 @@
 # stylix.nix
 { inputs, pkgs, lib, ... }:
-let
-in
 {
 	imports = [
 		inputs.stylix.homeModules.stylix
@@ -15,10 +13,8 @@ in
 			hyprpanel.enable = false;
 			starship.enable = false;
       
-      nixvim.colors.override = {
-        base08 = "8FBCBB";
-      };
-		};
+      nixvim.enable = false;
+    };
 
 		opacity = {
 			terminal = 0.5;
