@@ -19,8 +19,8 @@ in
   # bg05 = "#D8CDBD";
   # bg06 = "#E4DAC8";
   # bg07 = "#FBEFDD";
-  # fg01 = "#CB4D3B"; # red
-  # fg00 = "#CD804A"; # orange
+  # fg00 = "#CB4D3B"; # red
+  # fg01 = "#CD804A"; # orange
   # fg02 = "#CBA34E"; # yellow
   # fg03 = "#AAA95A"; # green
   # fg04 = "#9BB5AB"; # lightblue
@@ -62,31 +62,31 @@ in
     bg14 = "443C35"; # dark tan
     bg15 = "2E2530"; # dark purple
   
-    withHash = {
-      bg00 = "#${colors.bg00}";
-      bg01 = "#${colors.bg01}";
-      bg02 = "#${colors.bg02}";
-      bg03 = "#${colors.bg03}";
-      bg04 = "#${colors.bg04}";
-      bg05 = "#${colors.bg05}";
-      bg06 = "#${colors.bg06}";
-      bg07 = "#${colors.bg07}";
-      fg00 = "#${colors.fg00}"; # red
-      fg01 = "#${colors.fg01}"; # orange
-      fg02 = "#${colors.fg02}"; # yellow
-      fg03 = "#${colors.fg03}"; # green
-      fg04 = "#${colors.fg04}"; # lightblue
-      fg05 = "#${colors.fg05}"; # darkblue
-      fg06 = "#${colors.fg06}"; # tan
-      fg07 = "#${colors.fg07}"; # purple
-      bg08 = "#${colors.bg08}"; # dark red
-      bg09 = "#${colors.bg09}"; # dark orange
-      bg10 = "#${colors.bg10}"; # dark yellow
-      bg11 = "#${colors.bg11}"; # dark green
-      bg12 = "#${colors.bg12}"; # dark lightblue
-      bg13 = "#${colors.bg13}"; # dark darkblue
-      bg14 = "#${colors.bg14}"; # dark tan
-      bg15 = "#${colors.bg15}"; # dark purple
-    };
+    #withHash = {
+    #  bg00 = "#${colors.bg00}";
+    #  bg01 = "#${colors.bg01}";
+    #  bg02 = "#${colors.bg02}";
+    #  bg03 = "#${colors.bg03}";
+    #  bg04 = "#${colors.bg04}";
+    #  bg05 = "#${colors.bg05}";
+    #  bg06 = "#${colors.bg06}";
+    #  bg07 = "#${colors.bg07}";
+    #  fg00 = "#${colors.fg00}"; # red
+    #  fg01 = "#${colors.fg01}"; # orange
+    #  fg02 = "#${colors.fg02}"; # yellow
+    #  fg03 = "#${colors.fg03}"; # green
+    #  fg04 = "#${colors.fg04}"; # lightblue
+    #  fg05 = "#${colors.fg05}"; # darkblue
+    #  fg06 = "#${colors.fg06}"; # tan
+    #  fg07 = "#${colors.fg07}"; # purple
+    #  bg08 = "#${colors.bg08}"; # dark red
+    #  bg09 = "#${colors.bg09}"; # dark orange
+    #  bg10 = "#${colors.bg10}"; # dark yellow
+    #  bg11 = "#${colors.bg11}"; # dark green
+    #  bg12 = "#${colors.bg12}"; # dark lightblue
+    #  bg13 = "#${colors.bg13}"; # dark darkblue
+    #  bg14 = "#${colors.bg14}"; # dark tan
+    #  bg15 = "#${colors.bg15}"; # dark purple
+    #};
   };
 }

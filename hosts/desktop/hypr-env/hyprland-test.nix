@@ -122,6 +122,7 @@ in
   
         bindm = [
   				"$mod, mouse:273, resizewindow"
+          "$mod, mouse:272, movewindow"
         ] ++ config.custom.hyprland.layoutBindm;
   
         decoration = {

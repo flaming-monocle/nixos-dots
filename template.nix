@@ -14,5 +14,7 @@ in
     extraConfig = mkOption {
       type = types.listOf types.str;
       default = [];
-      description = "An empty list of strings
-};
+      description = "An empty list of strings";
+    };
+  };
+}

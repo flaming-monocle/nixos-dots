@@ -31,7 +31,7 @@ in
 			};
 			monospace = {
 				package = pkgs.dejavu_fonts;
-				name = "DejaVu Sans Mono";
+				name = "JetBrains Mono";
 			};
 			emoji = {
 				package = pkgs.noto-fonts-color-emoji;
