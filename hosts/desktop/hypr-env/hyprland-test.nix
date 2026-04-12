@@ -183,7 +183,7 @@ in
         windowrule = [
   				# Delicate balance between Hyprland opacity and blur with Obsidian CSS. Change with caution.
           # TODO this is broken
-          "match:class obsidian, opacity 0.95 override 0.95 override"
+          # "match:class obsidian, opacity 0.95 override 0.95 override"
         ] ++ config.custom.hyprland.layoutWindowrule;
         
         workspace = [] ++ config.custom.hyprland.layoutWorkspace;

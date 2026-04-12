@@ -1,5 +1,5 @@
 # nixvim/plugins/lsp.nix
-{ ... }:
+vaultDirEsc: { config, pkgs, lib, ... }:
 {
   programs.nixvim.plugins.lsp = {
     enable = true;
@@ -15,7 +15,7 @@
         workspaces = [
           {
             name = "secondbrain";
-            path = "~/Documents/'Second Brain'";
+            path = vaultDirEsc;
           }
         ];
         completion = { # wikilink syntax consistency with Obsidian, according to Gemini

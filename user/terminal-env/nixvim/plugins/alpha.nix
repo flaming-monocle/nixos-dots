@@ -1,6 +1,45 @@
 # nixvim/plugins/alpha.nix
-{ config, pkgs, lib, ... }:
+base16: vaultDir: { config, pkgs, lib, ... }:
 let
+  colors = config.lib.stylix.colors;
+
+  obsidianNew.__raw = ''
+      function()
+        local path = vim.fn.expand("${vaultDir}")
+        vim.cmd("cd " .. path)
+        vim.schedule(function()
+          vim.cmd("Obsidian new")
+        end)
+      end
+    '';
+
+  obsidianSearch.__raw = ''
+      function ()
+        require('telescope.builtin').find_files({
+          cwd = "${vaultDir}",
+          prompt_title = "󱓧  Vault Files",
+        })
+      end
+    '';
+
+  obsidianRestore.__raw = ''
+      function()
+        vim.cmd("cd ${vaultDir}")
+        require("persistence").load()
+        require("neo-tree")
+        vim.cmd("Neotree show")
+      end
+    '';
+
+  obsidianGrep.__raw = ''
+      function()
+        require('telescope.builtin').live_grep({
+          cwd = "${vaultDir}",
+          prompt_title = "󱎸  Search in Notes",
+        })
+      end
+    '';
+
   button = shortcut: desc: action: {
     type = "button";
     val = desc;
@@ -11,29 +50,37 @@ let
       align_shortcut = "right";
       hl_shortcut = "Keyword";
       position = "center";
-      keymap = [ "n" shortcut "<cmd>${action}<cr>" { noremap = true; silent = true; } ];
+      keymap = [ 
+        "n" 
+        shortcut 
+        (if lib.isAttrs action && action ? __raw 
+          then action 
+          else "<cmd>${action}<cr>"
+        )
+        { noremap = true; silent = true; } 
+      ];
     };
   };
 in
 {
   programs.nixvim = {
     highlight = {
-      Base16_00 = { fg = "${config.lib.stylix.colors.withHashtag.base00}"; };
-      Base16_01 = { fg = "${config.lib.stylix.colors.withHashtag.base01}"; };
-      Base16_02 = { fg = "${config.lib.stylix.colors.withHashtag.base02}"; };
-      Base16_03 = { fg = "${config.lib.stylix.colors.withHashtag.base03}"; };
-      Base16_04 = { fg = "${config.lib.stylix.colors.withHashtag.base04}"; };
-      Base16_05 = { fg = "${config.lib.stylix.colors.withHashtag.base05}"; };
-      Base16_06 = { fg = "${config.lib.stylix.colors.withHashtag.base06}"; };
-      Base16_07 = { fg = "${config.lib.stylix.colors.withHashtag.base07}"; };
-      Base16_08 = { fg = "${config.lib.stylix.colors.withHashtag.base08}"; };
-      Base16_09 = { fg = "${config.lib.stylix.colors.withHashtag.base09}"; };
-      Base16_0A = { fg = "${config.lib.stylix.colors.withHashtag.base0A}"; };
-      Base16_0B = { fg = "${config.lib.stylix.colors.withHashtag.base0B}"; };
-      Base16_0C = { fg = "${config.lib.stylix.colors.withHashtag.base0C}"; };
-      Base16_0D = { fg = "${config.lib.stylix.colors.withHashtag.base0D}"; };
-      Base16_0E = { fg = "${config.lib.stylix.colors.withHashtag.base0E}"; };
-      Base16_0F = { fg = "${config.lib.stylix.colors.withHashtag.base0F}"; };
+      Base16_00 = { fg = "#${colors.base00}"; };
+      Base16_01 = { fg = "#${colors.base01}"; };
+      Base16_02 = { fg = "#${colors.base02}"; };
+      Base16_03 = { fg = "#${colors.base03}"; };
+      Base16_04 = { fg = "#${colors.base04}"; };
+      Base16_05 = { fg = "#${colors.base05}"; };
+      Base16_06 = { fg = "#${colors.base06}"; };
+      Base16_07 = { fg = "#${colors.base07}"; };
+      Base16_08 = { fg = "#${colors.base08}"; };
+      Base16_09 = { fg = "#${colors.base09}"; };
+      Base16_0A = { fg = "#${colors.base0A}"; };
+      Base16_0B = { fg = "#${colors.base0B}"; };
+      Base16_0C = { fg = "#${colors.base0C}"; };
+      Base16_0D = { fg = "#${colors.base0D}"; };
+      Base16_0E = { fg = "#${colors.base0E}"; };
+      Base16_0F = { fg = "#${colors.base0F}"; };
     };
 
     plugins.alpha = {
@@ -102,21 +149,21 @@ in
               (button "r" "   Recent Files" "Telescope oldfiles")
               (button "f" "   Find File" "Telescope find_files")
               (button "g" "   Live Grep" "Telescope live_grep")
-              (button "t" "󰙅  Tree View" "")
-              ""
-              (button "o" "󰮋  Obsidian" "")
-              (button "x" "  NixOS" "")
+              (button "t" "󰙅  Tree View" "Neotree filesystem reveal left")
+              { type = "padding"; val = 1; }
+              (button "k" "󰮋  New Note" obsidianNew)
+              (button "o" "󰮊  Restore Vault" obsidianRestore)
+              (button "l" "󰇈  Search Vault" obsidianSearch)
+              (button "h" "󱘟  Grep Vault" obsidianGrep)
+              { type = "padding"; val = 1; }
+              #(button "x" "  NixOS" #TODO)
               (button "p" "  Projects" "Telescope projects")
-              ""
+              { type = "padding"; val = 1; }
               (button "m" "  Keymaps" "Telescope keymaps")
               (button "i" "  LSP Info" "LspInfo")
               (button "q" "󰅙  Quit" "qa")
-              #projects
               #git branches
               #git status
-
-              #restore session
-              #save session
             ];
           }
           { type = "padding"; val = 3; }

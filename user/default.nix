@@ -36,5 +36,8 @@
     lsof
     pciutils
     usbutils
+
+    # Content
+    minitube
   ];
 }

@@ -8,6 +8,7 @@ in
     inputs.nixvim.homeModules.nixvim
     ./plugins/default.nix
     ./keymaps.nix
+    ./colorscheme.nix
   ];
 
   programs.nixvim = {
@@ -16,6 +17,10 @@ in
     viAlias = true;
     vimAlias = true;
     luaLoader.enable = true;
+
+    diagonstics = {
+      virtual_text = false; # Handled by tiny-inline-diagnostic
+    };
 
     extraPackages = with pkgs; [
       nil

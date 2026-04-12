@@ -13,7 +13,7 @@
     ./zsh-aliases.nix
     ./hypr-env.nix
 		./rofi.nix
-		./stylix.nix
+		./stylix/default.nix
 		./scripts/ampm-pape.nix
   ];
 

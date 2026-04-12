@@ -5,13 +5,13 @@
     kitty
   ];
 
-  programs.kitty = lib.mkForce {
+  programs.kitty = {
     enable = true;
 		#themeFile = "everforest_dark_hard";
     settings = {
       # Font and cursor
-      font_family = "JetBrains Mono";
-      font_size = 12.0;
+      #font_family = "JetBrains Mono";
+      font_size = 14.0;
       adjust_line_height = "100%";
       cursor_shape = "block";
       cursor_blink_interval = 0;
@@ -28,7 +28,7 @@
       shell_integration = "enabled";
       
       # Visuals
-      background_opacity = 0.5;
+      #background_opacity = 0.5;
       inactive_text_alpha = 1;
       url_style = "dotted";
       show_hyperlink_targets = "yes";
